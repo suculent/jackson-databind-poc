@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="javascript:alert(1);">
+    <p id="xmlOut"></p>
+    <script type="application/javascript">
+        var xml = `
+            <!DOCTYPE foo [
+                <!ELEMENT foo ANY>
+                <!ENTITY xxe SYSTEM "file:///etc/passwd">
+                <!ENTITY bar "test that entity substitution works in general">
+            ]>
+            <foo>
+                display some text | &bar; | &xxe;
+            </foo>
+        `;
+
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(xml, "text/xml");
+        document.getElementById("xmlOut").innerHTML = xmlDoc.getElementsByTagName("foo")[0].childNodes[0].nodeValue;
+    </script>
+</body>
+</html>
